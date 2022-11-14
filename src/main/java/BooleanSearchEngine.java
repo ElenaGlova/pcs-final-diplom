@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class BooleanSearchEngine implements SearchEngine {
-    Map<String, List<PageEntry>> wordsMap = new HashMap<>();
+    private Map<String, List<PageEntry>> wordsMap = new HashMap<>();
 
     public BooleanSearchEngine(File pdfsDir) {
         List<PageEntry> pageEntryList;
@@ -30,8 +30,8 @@ public class BooleanSearchEngine implements SearchEngine {
                                 wordsMap.put(word, pageEntryList);
                             } else {
                                 wordsMap.get(word).add(pageEntry);
-                                wordsMap.get(word).sort(Collections.reverseOrder());
                             }
+                            wordsMap.get(word).sort(Collections.reverseOrder());
                         }
                     }
                 } catch (IOException e) {
